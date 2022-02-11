@@ -42,5 +42,23 @@ namespace TDDStringCalculator
             var input = "//|\n1|3,4";
             Assert.Throws<FormatException>(() => _sut.Add(input));
         }
+        [Test]
+        public void TestMissingSeparatorException()
+        {
+            var input = "//\n1|3|4";
+            Assert.Throws<FormatException>(() => _sut.Add(input));
+        }
+        [Test]
+        public void TestSeparatorOverrideException()
+        {
+            var input = "//|\n1|3|4\n3";
+            Assert.Throws<FormatException>(() => _sut.Add(input));
+        }
+        [Test]
+        public void TestNegativeException()
+        {
+            var input = "//|\n1|3|-4|3";
+            Assert.Throws<NegativeNumbersException>(() => _sut.Add(input));
+        }
     }
 }

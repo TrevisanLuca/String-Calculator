@@ -6,6 +6,15 @@ namespace StringCalculatorConsole
 {
     public class Calculator : ICalculator
     {
-        public int Add(string numbers) => numbers.StringSplitter().Sum();        
+        public int Add(string numbers)
+        {
+            var tempNumbers = numbers.StringSplitter();
+
+            foreach (var number in tempNumbers)
+                if (number < 0)
+                    throw new NegativeNumbersException("Nevative number(s) not allowed");
+
+            return tempNumbers.Sum();
+        }
     }
 }
