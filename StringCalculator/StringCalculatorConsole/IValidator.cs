@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace StringCalculatorConsole
 {
-    public class NegativeNumbersException : Exception
+    public interface IValidator
     {
-        public NegativeNumbersException() : base("Nevative number(s) not allowed")
-        { }
-    }    
+        IEnumerable<int> Validate(IEnumerable<int> input);
+    }
 }
