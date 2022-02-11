@@ -9,10 +9,7 @@ namespace TDDStringCalculator
         private ICalculator _sut;
 
         [SetUp]
-        public void Setup()
-        {
-            _sut = new Calculator();
-        }
+        public void Setup() => _sut = new Calculator();
 
         [TestCase("", ExpectedResult = 0)]
         [TestCase("1", ExpectedResult = 1)]
