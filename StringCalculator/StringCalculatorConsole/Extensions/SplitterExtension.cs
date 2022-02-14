@@ -52,9 +52,13 @@ namespace StringCalculatorConsole
                 if (tupleInput.input.EndsWith(item))
                     throw new SeparatorAtEndOfStringExeption("Input can't end with a separator");
 
-            return tupleInput.input
+            //We need to cast to list, otherwise the parse operation won't throw an eventual format exception
+            var result = tupleInput.input
                 .Split(tupleInput.separators, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => int.Parse(x));
+                .Select(x => int.Parse(x))
+                .ToList();
+
+            return result.AsEnumerable<int>();
         }
         private static (string input, string[] separators) ChooseSeparators(string input)
         {

@@ -9,7 +9,7 @@ namespace TDDStringCalculator
         private ICalculator _sut;
 
         [SetUp]
-        public void Setup() => _sut = new Calculator();
+        public void Setup() => _sut = new Calculator(new Validator());
 
         [TestCase("", ExpectedResult = 0)]
         [TestCase("1", ExpectedResult = 1)]
@@ -20,6 +20,8 @@ namespace TDDStringCalculator
         [TestCase("//;\n1;3", ExpectedResult = 4)]                 
         [TestCase("//|\n1|2|3", ExpectedResult = 6)]                 
         [TestCase("//sep\n5sep2", ExpectedResult = 7)]                 
+        [TestCase("2,1001", ExpectedResult = 2)]   
+        [TestCase("//|\n1|2|3000", ExpectedResult = 3)]
         public int Test(string input) => _sut.Add(input);
         [Test]
         public void TestReturnException()
