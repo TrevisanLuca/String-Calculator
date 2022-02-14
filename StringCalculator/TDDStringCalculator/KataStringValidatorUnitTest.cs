@@ -1,6 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using StringCalculatorConsole;
 using System.Collections.Generic;
 using StringCalculatorConsole.Validators;
 

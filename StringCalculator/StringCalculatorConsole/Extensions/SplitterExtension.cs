@@ -62,6 +62,10 @@ namespace StringCalculatorConsole
                 return (input, defaultSeparators);
 
             var separatorTemp = input.Split('\n', 2);
+
+            if(separatorTemp.Count() != 2)
+                throw new FormatException("Format Error");
+
             defaultSeparators = new string[] { separatorTemp[0].Substring(2) };
             if (defaultSeparators[0] == "") throw new FormatException("Missing separator");
             return (separatorTemp[1], defaultSeparators);

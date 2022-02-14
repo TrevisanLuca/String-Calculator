@@ -8,7 +8,7 @@ namespace StringCalculatorConsole.Validators
 {
     public class ValidateNegativeNumbers : AbstractValidator
     {
-        public override IEnumerable<int> Validate(IEnumerable<int> input) =>
+        public override List<int> Validate(List<int> input) =>
             input.Any(x => x < 0) ?
             throw new NegativeNumbersException() :
             _next == null ? input : _next.Validate(input);        

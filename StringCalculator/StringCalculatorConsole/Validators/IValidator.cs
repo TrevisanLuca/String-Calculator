@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 namespace StringCalculatorConsole
 {
     public interface IValidator
     {
-        IEnumerable<int> Validate(IEnumerable<int> input);
+        List<int> Validate(List<int> input);
     }
 }

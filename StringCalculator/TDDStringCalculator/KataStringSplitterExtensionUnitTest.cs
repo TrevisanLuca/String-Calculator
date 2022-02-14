@@ -53,5 +53,11 @@ namespace TDDStringCalculator
             var input = "//\n5sep2sep3";
             Assert.Throws<FormatException>(() => input.StringSplitter());
         }
+        [Test]
+        public void TestIncorrectSeparatorSyntaxException()
+        {
+            var input = "//sep5sep2sep3";
+            Assert.Throws<FormatException>(() => input.StringSplitter());
+        }
     }
 }

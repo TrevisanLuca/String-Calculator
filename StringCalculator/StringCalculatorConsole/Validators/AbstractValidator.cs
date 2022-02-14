@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 namespace StringCalculatorConsole.Validators
 {
     public abstract class AbstractValidator : IValidator
     {
         protected IValidator _next;
         public IValidator SetNext(IValidator validator) => _next = validator;
-        public abstract IEnumerable<int> Validate(IEnumerable<int> input);
+        public abstract List<int> Validate(List<int> input);
     }
 }

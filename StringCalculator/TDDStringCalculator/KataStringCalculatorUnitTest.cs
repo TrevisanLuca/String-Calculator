@@ -28,6 +28,7 @@ namespace TDDStringCalculator
         [TestCase("//sep\n5sep2", ExpectedResult = 7)]
         [TestCase("2,1001", ExpectedResult = 2)]
         [TestCase("//|\n1|2|3000", ExpectedResult = 3)]
+        [TestCase("//sep\n2sep5000sep4sep5", ExpectedResult = 11)]
         public int Test(string input) => _sut.Add(input);
         [Test]
         public void TestReturnException()

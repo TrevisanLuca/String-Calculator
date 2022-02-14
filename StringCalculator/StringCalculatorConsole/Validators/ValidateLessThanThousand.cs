@@ -8,9 +8,9 @@ namespace StringCalculatorConsole.Validators
 {
     public class ValidateLessThanThousand : AbstractValidator
     {
-        public override IEnumerable<int> Validate(IEnumerable<int> input)
+        public override List<int> Validate(List<int> input)
         {
-            var result = input.Where(x => x < 1000);
+            var result = input.Where(x => x < 1000).ToList();
             return _next == null ? result : _next.Validate(result);
         }
     }
