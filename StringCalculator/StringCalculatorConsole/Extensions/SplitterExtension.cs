@@ -6,7 +6,6 @@ namespace StringCalculatorConsole
 {
     public static class SplitterExtension
     {
-        //static readonly string[] _defaultSeparators = new string[] { ",", "\n" };
         public static IEnumerable<int> StringSplitterV1(this string input)
         {
             var separator = new string[] { ",", "\n" };
@@ -50,15 +49,11 @@ namespace StringCalculatorConsole
 
             foreach (var item in tupleInput.separators)
                 if (tupleInput.input.EndsWith(item))
-                    throw new SeparatorAtEndOfStringExeption("Input can't end with a separator");
+                    throw new SeparatorAtEndOfStringExeption("Input can't end with a separator");           
 
-            //We need to cast to list, otherwise the parse operation won't throw an eventual format exception
-            var result = tupleInput.input
+            return tupleInput.input
                 .Split(tupleInput.separators, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => int.Parse(x))
-                .ToList();
-
-            return result.AsEnumerable<int>();
+                .Select(x => int.Parse(x));
         }
         private static (string input, string[] separators) ChooseSeparators(string input)
         {

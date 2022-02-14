@@ -11,7 +11,7 @@ namespace StringCalculatorConsole
         }
         public int Add(string numbers) => 
             _validator
-            .Validate(numbers.StringSplitter())
+            .Validate(numbers.StringSplitter().ToList())
             .Sum();
     }
 }
