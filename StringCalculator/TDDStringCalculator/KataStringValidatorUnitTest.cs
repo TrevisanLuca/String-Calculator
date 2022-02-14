@@ -2,14 +2,20 @@
 using System;
 using StringCalculatorConsole;
 using System.Collections.Generic;
+using StringCalculatorConsole.Validators;
 
 namespace TDDStringCalculator
 {
     class KataStringValidatorUnitTest
     {
-        private IValidator _sut;
+        private AbstractValidator _sut;
         [SetUp]
-        public void Setup() => _sut = new Validator();
+        public void Setup()
+        {
+            _sut = new ValidateNegativeNumbers();
+            _sut.SetNext(new ValidateLessThanThousand());
+        }
+
         [Test]
         public void TestIgnoreThousand()
         {
